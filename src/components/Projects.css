@@ -1,0 +1,472 @@
+/* Projects Section - Enhanced visibility over video */
+.projects {
+  all: initial;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  max-width: 100vw;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  color: #ffffff;
+  font-family: 'Press Start 2P', cursive;
+  padding: 80px 20px;
+  text-align: center;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 10;
+}
+
+/* Simple Walking Character Animation */
+.walking-character {
+  position: absolute;
+  top: 22px;
+  left: -128px;
+  width: 128px;
+  height: 128px;
+  z-index: 5;
+  animation: walkAcross 25s linear infinite;
+  pointer-events: none;
+}
+
+/* Stop movement when sitting */
+.walking-character:has(.character-sitting-sprite) {
+  animation-play-state: paused;
+}
+
+/* Add bounce effect when jumping */
+.walking-character:has(.character-jump-sprite) {
+  animation: walkAcross 25s linear infinite, characterBounce 0.5s ease-in-out infinite;
+}
+
+@keyframes characterBounce {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-55px);
+  }
+}
+
+.character-sitting-sprite {
+  width: 128px;
+  height: 128px;
+  background: url('/projects/Character-NoWeapon-Sitting.png') -1408px 0 no-repeat; /* Start at last frame */
+  background-size: 1536px 128px; /* 12 frames * 128px width */
+  image-rendering: pixelated;
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3)) brightness(1.1);
+  opacity: 1;
+  z-index: 10;
+  /* No animation - just show the final sitting frame */
+}
+
+@keyframes sittingCycle {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -1408px 0; /* 11 frames * 128px - last visible frame */
+  }
+}
+
+.character-sprite {
+  width: 128px;
+  height: 128px;
+  background: url('/projects/Character-NoWeapon-Walk.png') 0 0 no-repeat;
+  background-size: 1536px 128px; /* 12 frames * 128px width */
+  animation: walkCycle 2s steps(10) infinite;
+  image-rendering: pixelated;
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+  opacity: 1; /* Ensure full visibility */
+}
+
+.character-jump-sprite {
+  width: 128px;
+  height: 128px;
+  background: url('/projects/Character-NoWeapon-Jump.png') 0 0 no-repeat;
+  background-size: 768px 128px; /* 6 frames * 128px width */
+  animation: jumpCycle 1s steps(6) infinite;
+  image-rendering: pixelated;
+  filter: drop-shadow(3px 3px 8px rgba(0,0,0,0.5)) brightness(1.2); /* Enhanced visibility */
+  transform: translateY(-20px); /* Jump effect */
+  opacity: 1; /* Ensure full visibility */
+  z-index: 10; /* Ensure it's above other elements */
+}
+
+@keyframes walkAcross {
+  0% {
+    left: -128px;
+  }
+  100% {
+    left: calc(100% + 128px);
+  }
+}
+
+@keyframes walkCycle {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -1536px 0; /* 12 frames * 128px */
+  }
+}
+
+@keyframes jumpCycle {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -768px 0; /* 6 frames * 128px */
+  }
+}
+
+@keyframes jumpBounce {
+  0% {
+    transform: translateY(-20px) scale(1);
+  }
+  50% {
+    transform: translateY(-60px) scale(1.1);
+  }
+  100% {
+    transform: translateY(-20px) scale(1);
+  }
+}
+
+
+
+
+.projects-container {
+  all: initial;
+  box-sizing: border-box;
+  display: block;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.projects-title {
+  all: initial;
+  box-sizing: border-box;
+  display: block;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 3rem;
+  color: #ffffff;
+  margin: 0 0 100px 0;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.projects-subtitle {
+  all: initial;
+  box-sizing: border-box;
+  display: block;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.8rem;
+  color: #e6c521;
+  margin: 0 0 60px 0;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.projects-grid {
+  all: initial;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.project-card {
+  all: initial;
+  box-sizing: border-box !important;
+  display: block;
+  background-color: #000000;
+  border: 2px solid #ffffff;
+  padding: 0;
+  text-align: left;
+  transition: all 0.15s ease;
+  font-family: 'Press Start 2P', cursive;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Project Image Section */
+.projects-container .project-image {
+  all: initial;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+
+}
+.project-image::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: repeating-linear-gradient(
+    to right,
+    #d3b41a 0 5px,
+    transparent 4px 12px
+  );
+  background-size: 16px 100%;
+  animation: moveDots var(--dot-animation-speed, 0.8s) linear infinite;
+  transition: animation 0.1s ease;
+}
+
+@keyframes moveDots {
+  from { background-position: 16px 0; }
+  to { background-position: 0 0; }
+}
+
+
+.projects-container .project-img {
+  all: initial !important;
+  box-sizing: border-box !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  transition: transform 0.3s ease !important;
+  filter: contrast(1.1) brightness(0.9) !important;
+  image-rendering: auto !important;
+}
+
+.project-card:hover .project-img {
+  transform: scale(1.05);
+  filter: contrast(1.2) brightness(1) !important;
+}
+
+/* Card Content Area */
+.projects-container .project-card .card-content {
+  all: initial;
+  box-sizing: border-box;
+  display: block;
+  padding: 25px;
+  width: 100%;
+}
+
+.project-card:hover {
+  transform: translate(-2px, -2px) scale(1.02);
+  box-shadow: 12px 12px 0 #000000;
+}
+
+.project-card:active {
+  transform: translate(1px, 1px) scale(1);
+  box-shadow: 2px 2px 0 #e6c521;
+  transition: all 0.05s ease;
+}
+
+.project-title {
+  all: initial;
+  box-sizing: border-box;
+  display: block;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
+  color: #e6c521;
+  margin: 0 0 15px 0;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.project-description {
+  all: initial;
+  box-sizing: border-box;
+  display: block;
+  font-family: 'Courier New', cursive;
+  font-size: 1rem;
+  color: #ffffff;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+  word-wrap: break-word;
+}
+
+.project-tech {
+  all: initial;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 25px 0;
+  width: 100%;
+}
+
+.tech-tag {
+  all: initial;
+  box-sizing: border-box;
+  display: inline-block;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.5rem;
+  padding: 4px 8px;
+  border: 1px solid #ffffff;
+  white-space: nowrap;
+}
+
+.project-links {
+  all: initial;
+  box-sizing: border-box;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.project-btn {
+  all: initial;
+  box-sizing: border-box !important;
+  display: inline-block;
+  background-color: #fef900;
+  color: #000000;
+  
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.6rem;
+  padding: 12px 16px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  position: relative;
+}
+
+/* Dashed border effect matching shuffle button */
+.project-btn::after {
+  content: '';
+  position: absolute;
+  top: 1.5px;
+  left: 1.5px;
+  right: 1.5px;
+  bottom: 1.5px;
+  border: 2px dashed #000000;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.project-btn:hover {
+  transform: translate(-2px, -2px) scale(1.02);
+  box-shadow: 6px 6px 0 #000000;
+  background-color: #e6c521;
+  color: #000000;
+}
+
+.project-btn:hover::after {
+  border-color: #000000;
+}
+
+.project-btn:active {
+  transform: translate(1px, 1px) scale(1);
+  box-shadow: 2px 2px 0 #000000;
+  transition: all 0.05s ease;
+}
+
+.project-btn:visited {
+  color: #e6c521;
+}
+
+.project-btn:hover:visited {
+  color: #000000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .projects {
+    padding: 60px 15px;
+  }
+  
+  .projects-title {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+  
+  .projects-subtitle {
+    font-size: 0.7rem;
+    margin-bottom: 40px;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .project-card {
+    padding: 0;
+  }
+  
+  .projects-container .project-card .card-content {
+    padding: 20px;
+  }
+  
+  .projects-container .project-image {
+    height: 180px;
+  }
+  
+  .walking-character {
+    top: 80px;
+    animation-duration: 12s;
+  }
+  
+  .project-title {
+    font-size: 0.9rem;
+  }
+  
+  .project-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .project-btn {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects {
+    padding: 40px 10px;
+  }
+  
+  .projects-title {
+    font-size: 1.2rem;
+  }
+  
+  .projects-subtitle {
+    font-size: 0.6rem;
+  }
+  
+  .project-card {
+    padding: 15px;
+  }
+  
+  .project-title {
+    font-size: 0.8rem;
+    margin-bottom: 12px;
+  }
+  
+  .project-description {
+    font-size: 0.55rem;
+    margin-bottom: 15px;
+  }
+  
+  .tech-tag {
+    font-size: 0.45rem;
+    padding: 3px 6px;
+  }
+  
+  .project-btn {
+    font-size: 0.55rem;
+    padding: 6px 10px;
+  }
+}

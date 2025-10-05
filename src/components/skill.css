@@ -1,0 +1,504 @@
+/* Skills Container - Enhanced visibility over video */
+.skills-container {
+  display: block;
+  text-align: center;
+  padding: 40px 1rem 40px 2rem;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  font-family: "Press Start 2P", monospace;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 10;
+}
+
+/* Subtle depth overlay without glow effects */
+.skills-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Skills Title - Enhanced visibility */
+.skills-container .skills-title {
+  margin: 0 0 90px 0;
+  padding: 12px 24px;
+  font-size: 3rem;
+  font-family: "Press Start 2P", monospace;
+  font-weight: normal;
+  letter-spacing: 2px;
+  color: #f0f0f0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Skills Grid */
+.skills-container .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  margin: 40px auto;
+  padding: 0;
+  max-width: 1500px;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .skills-container .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 25px;
+    max-width: 1600px;
+  }
+  
+  .skills-container {
+    padding: 40px 1.5rem 40px 4rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .skills-container {
+    padding: 40px 2rem 40px 5rem;
+  }
+  
+  .skills-container .skills-grid {
+    gap: 30px;
+    max-width: 1800px;
+  }
+}
+
+/* Skill Card - Playing Card Style */
+.skills-container .skills-grid .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 130px;
+  height: 180px;
+  background: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  padding: 8px;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Press Start 2P", monospace;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+.skills-container .skills-grid .card :hover{
+  box-shadow: 12px 12px 0 #000, 2px 2px 6px rgba(0, 0, 0, 0.3);
+  transition: all 0.1s ease;
+
+}
+
+/* Playing card style inner border */
+.skills-container .skills-grid .card::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .skills-container .skills-grid .card {
+    width: 150px;
+    height: 200px;
+  }
+}
+
+.skills-container .skills-grid .card:hover {
+  transform: translate(-2px, -2px) scale(1.02);
+  box-shadow: 12px 12px 0 #000, 2px 2px 6px rgba(0, 0, 0, 0.3);
+  transition: all 0.1s ease;
+}
+
+.skills-container .skills-grid .card:active {
+  transform: translate(1px, 1px) scale(1);
+  box-shadow: 2px 2px 0 #000, 1px 1px 3px rgba(0, 0, 0, 0.3);
+  transition: all 0.05s ease;
+}
+
+/* Card Corner Elements - Playing card style */
+.skills-container .skills-grid .card .card-corner {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  font-family: "Press Start 2P", monospace;
+  letter-spacing: 1px;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+  z-index: 10;
+  color: #000000;
+}
+
+.skills-container .skills-grid .card .card-corner.top-left {
+  top: 8px;
+  left: 8px;
+}
+
+.skills-container .skills-grid .card .card-corner.bottom-right {
+  bottom: 8px;
+  right: 8px;
+  transform: rotate(180deg);
+}
+
+.skills-container .skills-grid .card .card-rank {
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: "Press Start 2P", monospace;
+  line-height: 1;
+  margin: 0 0 2px 0;
+  padding: 0;
+}
+
+.skills-container .skills-grid .card .card-suit {
+  font-size: 1.1rem;
+  font-family: "Press Start 2P", monospace;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+/* Card Image - Playing card center image */
+.skills-container .skills-grid .card .card-img {
+  display: block;
+  width: 75px;
+  height: 75px;
+  margin: 8px 0;
+  padding: 4px;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  object-fit: contain;
+  object-position: center;
+  filter: contrast(1.2);
+  box-sizing: border-box;
+  position: relative;
+  z-index: 5;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Card Content - Playing card text */
+.skills-container .skills-grid .card .card-content {
+  font-size: 0.8rem;
+  font-family: "Press Start 2P", monospace;
+  text-align: center;
+  color: #000000;
+  letter-spacing: 0.5px;
+  margin: 5px 0 0 0;
+  padding: 0;
+  position: relative;
+  z-index: 5;
+  text-transform: uppercase;
+  line-height: 1.1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Card Type Specific Styling - Enhanced specificity to prevent overrides */
+
+/* King Cards - Red style (Hearts/Diamonds) */
+.skills-container .skills-grid .card.k {
+  background: #fff8e1;
+  border-color: #d32f2f;
+}
+
+.skills-container .skills-grid .card.k::before {
+  border-color: #d32f2f;
+}
+
+.skills-container .skills-grid .card.k:hover {
+  transform: translate(-2px, -2px) scale(1.02);
+  box-shadow: 12px 12px 0 #000, 4px 4px 12px rgba(211, 47, 47, 0.4);
+  transition: all 0.1s ease;
+}
+
+.skills-container .skills-grid .card.k .card-rank,
+.skills-container .skills-grid .card.k .card-suit {
+  color: #d32f2f;
+}
+
+.skills-container .skills-grid .card.k .card-content {
+  color: #d32f2f;
+}
+
+/* Queen Cards - Red style (Hearts/Diamonds) */
+.skills-container .skills-grid .card.q {
+  background: #fce4ec;
+  border-color: #c2185b;
+}
+
+.skills-container .skills-grid .card.q::before {
+  border-color: #c2185b;
+}
+
+.skills-container .skills-grid .card.q:hover {
+  transform: translate(-2px, -2px) scale(1.02);
+  box-shadow: 12px 12px 0 #000, 4px 4px 12px rgba(194, 24, 91, 0.4);
+  transition: all 0.1s ease;
+}
+
+.skills-container .skills-grid .card.q .card-rank,
+.skills-container .skills-grid .card.q .card-suit {
+  color: #c2185b;
+}
+
+.skills-container .skills-grid .card.q .card-content {
+  color: #c2185b;
+}
+
+/* Jack Cards - Black style (Spades/Clubs) */
+.skills-container .skills-grid .card.j {
+  background: #f5f5f5;
+  border-color: #212121;
+}
+
+.skills-container .skills-grid .card.j::before {
+  border-color: #212121;
+}
+
+.skills-container .skills-grid .card.j:hover {
+  transform: translate(-2px, -2px) scale(1.02);
+  box-shadow: 12px 12px 0 #000, 4px 4px 12px rgba(33, 33, 33, 0.4);
+  transition: all 0.1s ease;
+}
+
+.skills-container .skills-grid .card.j .card-rank,
+.skills-container .skills-grid .card.j .card-suit {
+  color: #212121;
+}
+
+.skills-container .skills-grid .card.j .card-content {
+  color: #212121;
+}
+
+/* Joker Cards - Special multicolor style */
+.skills-container .skills-grid .card.joker {
+  background: linear-gradient(45deg, #fff 25%, #f0f0f0 25%, #f0f0f0 50%, #fff 50%, #fff 75%, #f0f0f0 75%);
+  background-size: 8px 8px;
+  border-color: #7b1fa2;
+}
+
+.skills-container .skills-grid .card.joker::before {
+  border-color: #7b1fa2;
+}
+
+.skills-container .skills-grid .card.joker:hover {
+  transform: translate(-2px, -2px) scale(1.02);
+  box-shadow: 12px 12px 0 #000, 4px 4px 12px rgba(123, 31, 162, 0.4);
+  transition: all 0.1s ease;
+}
+
+.skills-container .skills-grid .card.joker .card-rank,
+.skills-container .skills-grid .card.joker .card-suit {
+  color: #7b1fa2;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.skills-container .skills-grid .card.joker .card-content {
+  color: #7b1fa2;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Shuffle Button - Protected against inheritance */
+.skills-container .shuffle-btn {
+  /* Reset inherited styles */
+  all: unset;
+  
+  /* Core button properties */
+  display: inline-block !important;
+  cursor: pointer !important;
+  
+  /* Visual styling */
+  background: #f4ed24 !important;
+ 
+  border-radius: 0 !important;
+  
+   font-family: 'Press Start 2P', cursive;
+  font-size: 0.8rem;
+  padding: 0.8rem 1.5rem;
+  min-width: 160px;
+  text-align: center;
+  
+ 
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.15s ease;
+  position: relative;
+  background: #e6c521;
+  color: #1a1a1a;
+ 
+  text-decoration: none;
+  display: inline-block;
+  
+  /* Dashed border effect */
+  &::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    border: 2px dashed #000;
+    border-radius: 2px;
+    pointer-events: none;
+  }
+}
+.shuffle-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #000;
+  background-color: red;
+  transition: all 0.1s ease;
+}
+.shuffle-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 #000;
+  transition: all 0.05s ease;
+}
+
+
+/* Legend - Protected text styling */
+.skills-container .legend {
+  font-size: 0.6rem !important;
+  font-family: "Press Start 2P", monospace !important;
+  color: #888888 !important;
+  letter-spacing: 1px !important;
+  line-height: 1.6 !important;
+  text-align: center !important;
+  
+  margin: 30px auto 0 auto !important;
+  padding: 0 !important;
+  max-width: 800px !important;
+  width: 100%;
+  
+  /* Box model */
+  box-sizing: border-box !important;
+  
+  /* Positioning */
+  position: relative;
+  z-index: 9;
+  
+  /* Text properties */
+  text-transform: none;
+  text-decoration: none;
+  font-weight: normal;
+  
+  /* Prevent interactions */
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Sprite Component Styles */
+.skills-container .idle-container {
+  position: absolute;
+  width: 128px;
+  height: 128px;
+  z-index: 5;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(10px);
+  will-change: transform;
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+}
+
+/* Flip sprite when moving left */
+
+
+/* Jump Component Styles */
+.skills-container .jump-container {
+  position: absolute;
+  width: 128px;
+  height: 128px;
+  z-index: 5;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(10px);
+  will-change: transform;
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+}
+
+.skills-container .jump-container.jumping {
+  animation: jumpBounce 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Flip sprite when moving left */
+.skills-container .jump-container.flipped .jump {
+  transform: scaleX(-1) scale(1.2);
+}
+
+.skills-container .jump-container.flipped.jumping .jump {
+  transform: scaleX(-1) scale(1.2);
+}
+
+@keyframes jumpBounce {
+  0% { 
+    transform: translateX(-50%) translateY(0px) ;
+  }
+  15% {
+    transform: translateX(-50%) translateY(-30px) ;
+  }
+  30% {
+    transform: translateX(-50%) translateY(-60px) ;
+  }
+  50% {
+    transform: translateX(-50%) translateY(-80px) ;
+  }
+  70% {
+    transform: translateX(-50%) translateY(-60px) ;
+  }
+  85% {
+    transform: translateX(-50%) translateY(-15px) ;
+  }
+  95% {
+    transform: translateX(-50%) translateY(-5px) ;
+  }
+  100% { 
+    transform: translateX(-50%) translateY(0px) ;
+  }
+}
+
+.skills-container .jump {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 128px;
+  height: 128px;
+  background: url("/Jump.png") 0 0 no-repeat;
+  background-size: 1280px 128px; /* 10 frames * 128px */
+  animation: jumpSprite 1.2s steps(10) infinite;
+  image-rendering: pixelated;
+  transform: scale(1.2);
+  transition: transform 0.4s ease-out;
+  pointer-events: none;
+  filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.4));
+}
+@keyframes jumpSprite {
+  0% { background-position: 0 0; }
+  100% { background-position: -1280px 0; /* 10 frames * 128px */ }
+}
