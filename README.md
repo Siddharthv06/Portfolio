@@ -1,0 +1,121 @@
+# 🚀 Siddharth's Portfolio
+
+A modern, responsive developer portfolio showcasing my projects, skills, certifications, achievements, and journey in software development, AI/ML, and cybersecurity. Built to highlight my technical expertise and provide an interactive experience for recruiters, developers, and collaborators. :contentReference[oaicite:0]{index=0}
+
+## 🌐 Live Demo
+
+🔗 Portfolio Website: https://portfolio-yx5q.onrender.com/
+
+## 📌 About
+
+I am a passionate Software Developer with interests in:
+
+- 💻 Full Stack Development
+- 🤖 Artificial Intelligence & Machine Learning
+- 🛡️ Cybersecurity
+- ☁️ Cloud Technologies
+- 📊 Data Analytics & Visualization
+
+This portfolio serves as a central hub to showcase my work, technical skills, certifications, event participation, and professional growth. :contentReference[oaicite:1]{index=1}
+
+---
+
+## ✨ Features
+
+- Responsive design for desktop and mobile devices
+- Interactive and modern UI
+- Project showcase with GitHub links
+- Skills and technology stack overview
+- Certifications section
+- Technical blogs/articles
+- Event and workshop highlights
+- Contact form integration
+- Resume download option
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- HTML5
+- CSS3
+- JavaScript
+
+### Tools & Platforms
+- Git & GitHub
+- Docker
+- AWS
+- VS Code
+
+### Languages & Technologies
+- Python
+- SQL
+- Django
+- Flask
+- MongoDB
+- Power BI
+- Tableau
+- Cybersecurity Tools
+
+*Technologies may evolve as the portfolio continues to grow.* :contentReference[oaicite:2]{index=2}
+
+---
+
+## 📂 Featured Projects
+
+### 🚦 Traffic Accident Analysis
+Analyzing traffic accident datasets to identify patterns, trends, and actionable insights.
+
+### 🏴‍☠️ CTF Challenges
+Cybersecurity Capture The Flag challenges designed to improve problem-solving and security skills.
+
+### 🚗 Parkit
+A parking reservation platform built to simplify parking management and booking.
+
+### 🖼️ SnapSpace
+An image gallery application for uploading, organizing, and managing media.
+
+### 🤖 CyberSec Chatbot Game
+A cybersecurity-focused chatbot game that combines learning with interactive challenges.
+
+### 📲 QR Generator
+A simple and efficient QR code generation application.
+
+More projects can be explored directly through the portfolio website. :contentReference[oaicite:3]{index=3}
+
+---
+
+## 📜 Certifications
+
+Highlights include:
+
+- Prompt Engineering
+- IBM Python for Data Science
+- Cybersecurity Fundamentals
+- Power BI Advanced
+- Git & GitHub
+- NoSQL Databases
+- DBMS
+- Python Programming & DSA
+
+For the complete list, visit the certifications section of the portfolio. :contentReference[oaicite:4]{index=4}
+
+---
+
+## 🎯 Achievements & Activities
+
+- Participated in AI, Cybersecurity, and Developer conferences
+- Organized and contributed to cybersecurity events and workshops
+- Active participant in technical meetups and hackathons
+- Community builder and technology enthusiast
+
+:contentReference[oaicite:5]{index=5}
+
+---
+
+## 🚀 Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Siddharthv06/Portfolio.git

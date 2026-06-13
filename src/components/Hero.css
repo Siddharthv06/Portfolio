@@ -1,0 +1,382 @@
+/* Animated Portrait styling */
+.animated-portrait {
+  position: relative;
+  z-index: 3;
+  max-width: 600px;
+  flex-shrink: 0;
+  cursor: pointer;
+  box-shadow: #000;
+ 
+}
+
+.animated-portrait img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  display: block;
+}
+
+/* Specific sizing for hire me image */
+.animated-portrait img[src*="hireme"] {
+  width: 135%;
+  max-width: 2000px;
+  position: relative;
+  left: -130px;
+  top: -20px;
+  
+}
+
+/* Specific sizing for resume image */
+.animated-portrait img[src*="resume"] {
+  width: 130%;
+  max-width: 4000px;
+  position: relative;
+  left: -130px;
+  top:-20px;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+    gap: 2rem;
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .animated-portrait {
+    max-width: 250px;
+    order: -1; /* Place image above content on mobile */
+  }
+  
+  .hero-content {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  color: white;
+  padding: 0 5%;
+  z-index: 10;
+  margin-top: 70px; /* To account for navbar height */
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  gap: 3rem;
+}
+
+/* Subtle dark overlay for depth without distraction */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg, 
+    rgba(0, 0, 0, 0.2) 0%, 
+    rgba(0, 0, 0, 0.05) 50%, 
+    rgba(0, 0, 0, 0.2) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-content {
+  max-width: 700px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  padding: 0 rem;
+  box-sizing: border-box;
+  flex: 1.5;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Press Start 2P', cursive;
+  line-height: 1.2;
+  text-align: center;
+  border-style: calc();
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  font-family: 'Courier New', monospace;
+  line-height: 1.6;
+} 
+
+.hero-buttons {
+  display: flex;
+  gap: 80px;
+  margin-top: 60px;
+  position: relative;
+  z-index: 2;
+  min-height: 100px;
+  justify-content: center;
+  align-items: flex-start;
+  
+}
+
+.hero-btn {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.8rem;
+  padding: 0.8rem 1.5rem;
+  min-width: 160px;
+  text-align: center;
+  
+ 
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.15s ease;
+  position: relative;
+  background: #e6c521;
+  color: #1a1a1a;
+ 
+  text-decoration: none;
+  display: inline-block;
+  
+  /* Dashed border effect */
+  &::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    border: 2px dashed #000;
+    border-radius: 2px;
+    pointer-events: none;
+  }
+}
+
+.hero-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #000;
+  background-color: red;
+  transition: all 0.1s ease;
+}
+
+.hero-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 #000;
+  transition: all 0.05s ease;
+}
+
+.hero-btn.secondary {
+  background-color: #e6c521;
+  color: #280505;
+ 
+  
+  
+  &::after {
+    border-color: #000000;
+  }
+}
+
+.hero-btn.secondary:hover {
+  background-color: red;
+  
+  &::after {
+    border-color: #000000;
+  }
+}
+
+.hero .slime-container {
+  position: absolute;
+  width: 128px;
+  height: 40px;
+  z-index: 5;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-50%);
+  will-change: transform;
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3)) brightness(1.2);
+  top: 50%;
+  opacity: 1;
+}
+
+.hero .slime-container.jumping {
+  animation: jump 0.5s cubic-bezier(0.5, 1, 0.5, 1);
+}
+
+@keyframes jump {
+  0% { transform: translateX(-50%) translateY(-50%); }
+  50% { transform: translateX(calc(-50% + var(--jump-distance, 0px))) translateY(-150%) scaleY(1); }
+  100% { transform: translateX(-50%) translateY(-50%); }
+}
+
+.slime {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 128px;
+  height: 128px;
+  background: url("/slimejump.png") 0 0 no-repeat;
+  background-size: 1664px 128px; /* 13 frames * 128px */
+  animation: slimejump 0.8s steps(13) infinite;
+  image-rendering: pixelated;
+  transform: scale(1.1);
+  transition: transform 0.3s ease-out;
+  pointer-events: none;
+  opacity: 1;
+  z-index: 10;
+}
+
+@keyframes slimejump {
+  0% { background-position: 0 0; }
+  100% { background-position: -1664px 0; /* 13 frames * 128px */ }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+
+
+/* Pixel art decoration */
+
+/* Hire Me Modal - Pixel theme match */
+.hire-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.hire-modal {
+  background: #000;
+  border: 3px solid #e6c521;
+  padding: 2.5rem 2rem;
+  max-width: 420px;
+  width: 90%;
+  position: relative;
+  text-align: center;
+  color: #fff;
+  font-family: 'Press Start 2P', cursive;
+  box-shadow: 8px 8px 0 #e6c521;
+}
+
+.hire-modal::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border: 2px dashed #e6c521;
+  pointer-events: none;
+}
+
+.hire-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: none;
+  border: none;
+  color: #e6c521;
+  font-size: 1rem;
+  font-family: 'Press Start 2P', cursive;
+  cursor: pointer;
+  z-index: 2;
+  padding: 0;
+  transition: all 0.15s ease;
+}
+
+.hire-modal-close:hover {
+  color: red;
+  transform: translate(-1px, -1px);
+  text-shadow: 2px 2px 0 #000;
+}
+
+.hire-modal-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hire-modal-phone,
+.hire-modal-email {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-size: 0.65rem;
+  padding: 1rem 1.2rem;
+  background: #e6c521;
+  border: none;
+  transition: all 0.15s ease;
+  font-family: 'Press Start 2P', cursive;
+  position: relative;
+}
+
+.hire-modal-phone::after,
+.hire-modal-email::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  border: 2px dashed #000;
+  pointer-events: none;
+}
+
+.hire-modal-phone:hover,
+.hire-modal-email:hover {
+  background: red;
+  color: #fff;
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 #e6c521;
+}
+
+.hire-modal-phone:hover::after,
+.hire-modal-email:hover::after {
+  border-color: #fff;
+}
