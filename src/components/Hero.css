@@ -6,7 +6,7 @@
   flex-shrink: 0;
   cursor: pointer;
   box-shadow: #000;
- 
+
 }
 
 .animated-portrait img {
@@ -24,7 +24,7 @@
   position: relative;
   left: -130px;
   top: -20px;
-  
+
 }
 
 /* Specific sizing for resume image */
@@ -33,7 +33,7 @@
   max-width: 4000px;
   position: relative;
   left: -130px;
-  top:-20px;
+  top: -20px;
 }
 
 
@@ -47,25 +47,26 @@
     height: auto;
     min-height: 100vh;
   }
-  
+
   .animated-portrait {
     max-width: 250px;
-    order: -1; /* Place image above content on mobile */
+    order: -1;
+    /* Place image above content on mobile */
   }
-  
+
   .hero-content {
     max-width: 100%;
     padding: 0 1rem;
   }
-  
+
   .hero h1 {
     font-size: 2.5rem;
   }
-  
+
   .hero p {
     font-size: 1.2rem;
   }
-  
+
   .hero-buttons {
     flex-direction: column;
     gap: 20px;
@@ -83,7 +84,8 @@
   color: white;
   padding: 0 5%;
   z-index: 10;
-  margin-top: 70px; /* To account for navbar height */
+  margin-top: 70px;
+  /* To account for navbar height */
   box-sizing: border-box;
   width: 100%;
   max-width: 100vw;
@@ -101,12 +103,10 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    180deg, 
-    rgba(0, 0, 0, 0.2) 0%, 
-    rgba(0, 0, 0, 0.05) 50%, 
-    rgba(0, 0, 0, 0.2) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.05) 50%,
+      rgba(0, 0, 0, 0.2) 100%);
   pointer-events: none;
   z-index: 1;
 }
@@ -135,7 +135,7 @@
   margin-bottom: 2rem;
   font-family: 'Courier New', monospace;
   line-height: 1.6;
-} 
+}
 
 .hero-buttons {
   display: flex;
@@ -146,7 +146,7 @@
   min-height: 100px;
   justify-content: center;
   align-items: flex-start;
-  
+
 }
 
 .hero-btn {
@@ -155,8 +155,8 @@
   padding: 0.8rem 1.5rem;
   min-width: 160px;
   text-align: center;
-  
- 
+
+
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -164,10 +164,10 @@
   position: relative;
   background: #e6c521;
   color: #1a1a1a;
- 
+
   text-decoration: none;
   display: inline-block;
-  
+
   /* Dashed border effect */
   &::after {
     content: '';
@@ -198,9 +198,9 @@
 .hero-btn.secondary {
   background-color: #e6c521;
   color: #280505;
- 
-  
-  
+
+
+
   &::after {
     border-color: #000000;
   }
@@ -208,7 +208,7 @@
 
 .hero-btn.secondary:hover {
   background-color: red;
-  
+
   &::after {
     border-color: #000000;
   }
@@ -217,12 +217,12 @@
 .hero .slime-container {
   position: absolute;
   width: 128px;
-  height: 40px;
+  height: 3px;
   z-index: 5;
   pointer-events: none;
   transform: translateX(-50%) translateY(-50%);
   will-change: transform;
-  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3)) brightness(1.2);
+  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.3)) brightness(1.2);
   top: 50%;
   opacity: 1;
 }
@@ -232,9 +232,17 @@
 }
 
 @keyframes jump {
-  0% { transform: translateX(-50%) translateY(-50%); }
-  50% { transform: translateX(calc(-50% + var(--jump-distance, 0px))) translateY(-150%) scaleY(1); }
-  100% { transform: translateX(-50%) translateY(-50%); }
+  0% {
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  50% {
+    transform: translateX(calc(-50% + var(--jump-distance, 0px))) translateY(-150%) scaleY(1);
+  }
+
+  100% {
+    transform: translateX(-50%) translateY(-50%);
+  }
 }
 
 .slime {
@@ -244,7 +252,8 @@
   width: 128px;
   height: 128px;
   background: url("/slimejump.png") 0 0 no-repeat;
-  background-size: 1664px 128px; /* 13 frames * 128px */
+  background-size: 1664px 128px;
+  /* 13 frames * 128px */
   animation: slimejump 0.8s steps(13) infinite;
   image-rendering: pixelated;
   transform: scale(1.1);
@@ -255,14 +264,23 @@
 }
 
 @keyframes slimejump {
-  0% { background-position: 0 0; }
-  100% { background-position: -1664px 0; /* 13 frames * 128px */ }
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: -1664px 0;
+    /* 13 frames * 128px */
+  }
 }
 
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-10px);
   }

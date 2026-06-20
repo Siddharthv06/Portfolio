@@ -4,13 +4,13 @@ import './Hero.css';
 function AnimatedPortrait({ currentImage, onPortraitHover, isPortraitHovered }) {
     const [animationImage, setAnimationImage] = useState(0);
     const intervalRef = useRef(null);
-    
+
     const animationImages = [
         '/portrait/me1.png',
         '/portrait/me2.png',
         '/portrait/me3.png'
     ];
-    
+
     useEffect(() => {
         if (isPortraitHovered) {
             // Start animation cycle when hovering over portrait
@@ -25,26 +25,26 @@ function AnimatedPortrait({ currentImage, onPortraitHover, isPortraitHovered }) 
             }
             setAnimationImage(0);
         }
-        
+
         return () => {
             if (intervalRef.current) {
                 clearInterval(intervalRef.current);
             }
         };
     }, [isPortraitHovered, animationImages.length]);
-    
+
     // Use animation image when hovering portrait, otherwise use button-controlled image
     const displayImage = isPortraitHovered ? animationImages[animationImage] : currentImage;
-    
+
     return (
-        <div 
+        <div
             className="animated-portrait"
             onMouseEnter={() => onPortraitHover(true)}
             onMouseLeave={() => onPortraitHover(false)}
         >
-            <img 
-                src={displayImage} 
-                alt="Siddharth - Full Stack Developer" 
+            <img
+                src={displayImage}
+                alt="Siddharth - Full Stack Developer"
             />
         </div>
     );
@@ -54,7 +54,7 @@ function AnimatedPortrait({ currentImage, onPortraitHover, isPortraitHovered }) 
 function Slime({ position }) {
     // Add a jumping class when position changes
     const [isJumping, setIsJumping] = React.useState(false);
-    
+
     React.useEffect(() => {
         // Trigger jump animation when position changes
         setIsJumping(true);
@@ -63,7 +63,7 @@ function Slime({ position }) {
     }, [position.x]);
 
     return (
-        <div 
+        <div
             className={`slime-container ${isJumping ? 'jumping' : ''}`}
             style={{
                 left: position.x,
@@ -78,35 +78,35 @@ function Slime({ position }) {
 }
 
 export default function Hero() {
-    const [slimePosition, setSlimePosition] = useState({ x: '30%', y: '32%' });
+    const [slimePosition, setSlimePosition] = useState({ x: '30%', y: '50%' });
     const [portraitImage, setPortraitImage] = useState('/portrait/me1.png');
     const [isPortraitHovered, setIsPortraitHovered] = useState(false);
     const [showHireModal, setShowHireModal] = useState(false);
     const buttonsRef = useRef([]);
 
-    
+
 
     return (
-        <section id="hero" className="hero"> 
+        <section id="hero" className="hero">
             <div className="hero-content">
                 <h1>I'M SIDDHARTH</h1>
                 <p>
                     Software Developer | Backend Developer |  AI Engineer |
-                    
+
                     <span className="highlight"> Turning Ideas into Digital Reality</span>
                 </p>
-                
+
                 <Slime position={slimePosition} />
-                
+
                 <div className="hero-buttons">
-                    <a 
+                    <a
                         ref={el => buttonsRef.current[0] = el}
-                        href="#" 
+                        href="#"
                         className="hero-btn"
-                        
+
                         onMouseEnter={() => {
                             setSlimePosition({ x: '25%', y: '0%' });
-                            
+
                         }}
                         onMouseLeave={() => setPortraitImage('/portrait/me1.png')}
                         onClick={(e) => {
@@ -116,14 +116,14 @@ export default function Hero() {
                     >
                         HIRE ME
                     </a>
-                    <a 
+                    <a
                         ref={el => buttonsRef.current[1] = el}
-                        href="/Resume.pdf" 
+                        href="/Resume.pdf"
                         className="hero-btn secondary"
-                                            
+
                         onMouseEnter={() => {
                             setSlimePosition({ x: '75%', y: '0%' });
-                                                
+
                         }}
                         onMouseLeave={() => setPortraitImage('/portrait/me1.png')}
                         target="_blank"
@@ -133,9 +133,9 @@ export default function Hero() {
                     </a>
                 </div>
             </div>
-            
-            <AnimatedPortrait 
-                currentImage={portraitImage} 
+
+            <AnimatedPortrait
+                currentImage={portraitImage}
                 onPortraitHover={setIsPortraitHovered}
                 isPortraitHovered={isPortraitHovered}
             />
