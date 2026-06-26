@@ -78,7 +78,7 @@ function Slime({ position }) {
 }
 
 export default function Hero() {
-    const [slimePosition, setSlimePosition] = useState({ x: '30%', y: '50%' });
+    const [slimePosition, setSlimePosition] = useState({ x: '30%', y: '32%' });
     const [portraitImage, setPortraitImage] = useState('/portrait/me1.png');
     const [isPortraitHovered, setIsPortraitHovered] = useState(false);
     const [showHireModal, setShowHireModal] = useState(false);
