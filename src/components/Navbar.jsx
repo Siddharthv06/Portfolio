@@ -1,5 +1,4 @@
 import "./Navbar.css";
-import "./Navbar.css";
 import { useState, useEffect, useRef } from 'react';
 import { Walk, Run, Attack } from './Sprite';
 

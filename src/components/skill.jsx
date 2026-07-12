@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./skill.css";
+import useScrollReveal from '../hooks/useScrollReveal';
 
 // Using placeholder pixel art style images from external sources
 // These are temporary - replace with your actual pixel art avatars
@@ -66,6 +67,12 @@ const skills = [
     img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg", 
     suit: "♦" 
   },
+  { 
+    name: "FLUTTER", 
+    type: "K", 
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg", 
+    suit: "♠" 
+  },
 ];
 
 function Jump({ position, direction }) {
@@ -110,6 +117,13 @@ export default function Skill() {
   const [prevPosition, setPrevPosition] = useState({ x: 0, y: 0 });
   const cardRefs = useRef([]);
   const containerRef = useRef(null);
+  const revealRef = useScrollReveal();
+
+  // Combine refs
+  const combinedRef = (el) => {
+    containerRef.current = el;
+    revealRef.current = el;
+  };
 
   // Calculate initial position after component mounts
   useEffect(() => {
@@ -152,7 +166,7 @@ export default function Skill() {
   };
 
   return (
-    <section id="skills" className="skills-container" ref={containerRef}>
+    <section id="skills" className="skills-container scroll-reveal" ref={combinedRef}>
       <Jump position={jumpPosition} direction={direction} />
       <h2 className="skills-title">SKILL DECK</h2>
       <div className="skills-grid">
@@ -183,8 +197,8 @@ export default function Skill() {
         🎲 SHUFFLE DECK
       </button>
       <p className="legend">
-        KING = Consider It Done | QUEEN = I Can Do | JACK = Confident | JOKER =
-        Its My Wild Card
+        ACE = Top Tier Expert &nbsp;|&nbsp; KING = Consider It Done<br />
+        QUEEN = I Can Do &nbsp;|&nbsp; JACK = Confident
       </p>
     </section>
   );

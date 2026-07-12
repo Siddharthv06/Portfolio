@@ -4,8 +4,7 @@
   text-align: center;
   padding: 40px 1rem 40px 2rem;
   margin: 0;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(5px);
+  background: transparent;
   font-family: "Press Start 2P", monospace;
   min-height: 100vh;
   width: 100%;
@@ -299,6 +298,31 @@
   color: #212121;
 }
 
+/* Ace Cards - Gold style (Top Tier) */
+.skills-container .skills-grid .card.a {
+  background: #fffde7;
+  border-color: #f9a825;
+}
+
+.skills-container .skills-grid .card.a::before {
+  border-color: #f9a825;
+}
+
+.skills-container .skills-grid .card.a:hover {
+  transform: translate(-2px, -2px) scale(1.02);
+  box-shadow: 12px 12px 0 #000, 4px 4px 12px rgba(249, 168, 37, 0.4);
+  transition: all 0.1s ease;
+}
+
+.skills-container .skills-grid .card.a .card-rank,
+.skills-container .skills-grid .card.a .card-suit {
+  color: #f9a825;
+}
+
+.skills-container .skills-grid .card.a .card-content {
+  color: #f9a825;
+}
+
 /* Joker Cards - Special multicolor style */
 .skills-container .skills-grid .card.joker {
   background: linear-gradient(45deg, #fff 25%, #f0f0f0 25%, #f0f0f0 50%, #fff 50%, #fff 75%, #f0f0f0 75%);
@@ -375,7 +399,8 @@
 .shuffle-btn:hover {
   transform: translate(-2px, -2px);
   box-shadow: 6px 6px 0 #000;
-  background-color: red;
+  background-color: #c41e1e !important;
+  color: #fff;
   transition: all 0.1s ease;
 }
 .shuffle-btn:active {

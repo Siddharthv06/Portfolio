@@ -8,8 +8,7 @@
   left: 0;
   right: 0;
   z-index: 100;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(26, 26, 26, 0.95));
-  backdrop-filter: blur(15px);
+  background: rgba(10, 10, 15, 0.5);
   border-top: 2px solid rgba(230, 197, 33, 0.3);
   padding: 3rem 2rem 2rem;
   font-family: 'Press Start 2P';
@@ -204,17 +203,19 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: repeating-linear-gradient(
+  background: linear-gradient(
     to right,
-    #e6c521 0 6px,
-    transparent 6px 14px
+    #e6c521 0,
+    #e6c521 8px,
+    transparent 8px,
+    transparent 20px
   );
   background-size: 20px 100%;
-  animation: moveDots 1s linear infinite;
+  animation: moveFooterDots 1s linear infinite;
   filter: drop-shadow(0 0 5px rgba(230, 197, 33, 0.5));
 }
 
-@keyframes moveDots {
+@keyframes moveFooterDots {
   from { background-position: 20px 0; }
   to { background-position: 0 0; }
 }

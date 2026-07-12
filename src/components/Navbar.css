@@ -5,8 +5,8 @@
   left: 0;
   right: 0;
   z-index: 100;
-  background-color: rgba(0, 0, 0, 0.9);
-  backdrop-filter: blur(10px);
+  background-color: rgba(10, 10, 15, 0.8);
+  backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding: 2rem 2rem;
   font-family: 'Press Start 2P';
@@ -314,17 +314,18 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: repeating-linear-gradient(
+  background: linear-gradient(
     to right,
-    #d3b41a 0 5px,
-    transparent 4px 12px
+    #d3b41a 0,
+    #d3b41a 6px,
+    transparent 6px,
+    transparent 16px
   );
   background-size: 16px 100%;
-  animation: moveDots var(--dot-animation-speed, 0.8s) linear infinite;
-  transition: animation 0.1s ease;
+  animation: moveNavbarDots var(--dot-animation-speed, 0.8s) linear infinite;
 }
 
-@keyframes moveDots {
+@keyframes moveNavbarDots {
   from { background-position: 16px 0; }
   to { background-position: 0 0; }
 }

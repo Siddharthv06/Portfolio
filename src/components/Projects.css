@@ -5,8 +5,7 @@
   display: block;
   width: 100%;
   max-width: 100vw;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(5px);
+  background: transparent;
   color: #ffffff;
   font-family: 'Press Start 2P', cursive;
   padding: 80px 20px;
@@ -39,9 +38,12 @@
 }
 
 @keyframes characterBounce {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-55px);
   }
@@ -50,10 +52,12 @@
 .character-sitting-sprite {
   width: 128px;
   height: 128px;
-  background: url('/projects/Character-NoWeapon-Sitting.png') -1408px 0 no-repeat; /* Start at last frame */
-  background-size: 1536px 128px; /* 12 frames * 128px width */
+  background: url('/projects/Character-NoWeapon-Sitting.png') -1408px 0 no-repeat;
+  /* Start at last frame */
+  background-size: 1536px 128px;
+  /* 12 frames * 128px width */
   image-rendering: pixelated;
-  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3)) brightness(1.1);
+  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.3)) brightness(1.1);
   opacity: 1;
   z-index: 10;
   /* No animation - just show the final sitting frame */
@@ -63,8 +67,10 @@
   0% {
     background-position: 0 0;
   }
+
   100% {
-    background-position: -1408px 0; /* 11 frames * 128px - last visible frame */
+    background-position: -1408px 0;
+    /* 11 frames * 128px - last visible frame */
   }
 }
 
@@ -72,30 +78,38 @@
   width: 128px;
   height: 128px;
   background: url('/projects/Character-NoWeapon-Walk.png') 0 0 no-repeat;
-  background-size: 1536px 128px; /* 12 frames * 128px width */
+  background-size: 1536px 128px;
+  /* 12 frames * 128px width */
   animation: walkCycle 2s steps(10) infinite;
   image-rendering: pixelated;
-  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
-  opacity: 1; /* Ensure full visibility */
+  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.3));
+  opacity: 1;
+  /* Ensure full visibility */
 }
 
 .character-jump-sprite {
   width: 128px;
   height: 128px;
   background: url('/projects/Character-NoWeapon-Jump.png') 0 0 no-repeat;
-  background-size: 768px 128px; /* 6 frames * 128px width */
+  background-size: 768px 128px;
+  /* 6 frames * 128px width */
   animation: jumpCycle 1s steps(6) infinite;
   image-rendering: pixelated;
-  filter: drop-shadow(3px 3px 8px rgba(0,0,0,0.5)) brightness(1.2); /* Enhanced visibility */
-  transform: translateY(-20px); /* Jump effect */
-  opacity: 1; /* Ensure full visibility */
-  z-index: 10; /* Ensure it's above other elements */
+  filter: drop-shadow(3px 3px 8px rgba(0, 0, 0, 0.5)) brightness(1.2);
+  /* Enhanced visibility */
+  transform: translateY(-20px);
+  /* Jump effect */
+  opacity: 1;
+  /* Ensure full visibility */
+  z-index: 10;
+  /* Ensure it's above other elements */
 }
 
 @keyframes walkAcross {
   0% {
     left: -128px;
   }
+
   100% {
     left: calc(100% + 128px);
   }
@@ -105,8 +119,10 @@
   0% {
     background-position: 0 0;
   }
+
   100% {
-    background-position: -1536px 0; /* 12 frames * 128px */
+    background-position: -1536px 0;
+    /* 12 frames * 128px */
   }
 }
 
@@ -114,8 +130,10 @@
   0% {
     background-position: 0 0;
   }
+
   100% {
-    background-position: -768px 0; /* 6 frames * 128px */
+    background-position: -768px 0;
+    /* 6 frames * 128px */
   }
 }
 
@@ -123,9 +141,11 @@
   0% {
     transform: translateY(-20px) scale(1);
   }
+
   50% {
     transform: translateY(-60px) scale(1.1);
   }
+
   100% {
     transform: translateY(-20px) scale(1);
   }
@@ -207,6 +227,7 @@
   position: relative;
 
 }
+
 .project-image::after {
   content: '';
   position: absolute;
@@ -214,21 +235,49 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: repeating-linear-gradient(
-    to right,
-    #d3b41a 0 5px,
-    transparent 4px 12px
-  );
+  background: linear-gradient(to right,
+      #d3b41a 0,
+      #d3b41a 6px,
+      transparent 6px,
+      transparent 16px);
   background-size: 16px 100%;
-  animation: moveDots var(--dot-animation-speed, 0.8s) linear infinite;
-  transition: animation 0.1s ease;
+  animation: moveProjectsDots var(--dot-animation-speed, 0.8s) linear infinite;
 }
 
-@keyframes moveDots {
-  from { background-position: 16px 0; }
-  to { background-position: 0 0; }
+@keyframes moveProjectsDots {
+  from {
+    background-position: 16px 0;
+  }
+
+  to {
+    background-position: 0 0;
+  }
 }
 
+/* Placeholder for projects without images */
+.project-image-placeholder {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background: repeating-linear-gradient(
+    45deg,
+    #0a0a0a,
+    #0a0a0a 10px,
+    #111111 10px,
+    #111111 20px
+  );
+  border-bottom: 2px solid #333;
+}
+
+.placeholder-text {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.7rem;
+  color: #e6c521;
+  letter-spacing: 2px;
+  text-align: center;
+  padding: 10px;
+  opacity: 0.8;
+}
 
 .projects-container .project-img {
   all: initial !important;
@@ -330,7 +379,7 @@
   display: inline-block;
   background-color: #fef900;
   color: #000000;
-  
+
   font-family: 'Press Start 2P', cursive;
   font-size: 0.6rem;
   padding: 12px 16px;
@@ -385,48 +434,48 @@
   .projects {
     padding: 60px 15px;
   }
-  
+
   .projects-title {
     font-size: 1.5rem;
     margin-bottom: 8px;
   }
-  
+
   .projects-subtitle {
     font-size: 0.7rem;
     margin-bottom: 40px;
   }
-  
+
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 25px;
   }
-  
+
   .project-card {
     padding: 0;
   }
-  
+
   .projects-container .project-card .card-content {
     padding: 20px;
   }
-  
+
   .projects-container .project-image {
     height: 180px;
   }
-  
+
   .walking-character {
     top: 80px;
     animation-duration: 12s;
   }
-  
+
   .project-title {
     font-size: 0.9rem;
   }
-  
+
   .project-links {
     flex-direction: column;
     gap: 10px;
   }
-  
+
   .project-btn {
     text-align: center;
     width: 100%;
@@ -437,36 +486,51 @@
   .projects {
     padding: 40px 10px;
   }
-  
+
   .projects-title {
     font-size: 1.2rem;
   }
-  
+
   .projects-subtitle {
     font-size: 0.6rem;
   }
-  
+
   .project-card {
     padding: 15px;
   }
-  
+
   .project-title {
     font-size: 0.8rem;
     margin-bottom: 12px;
   }
-  
+
   .project-description {
     font-size: 0.55rem;
     margin-bottom: 15px;
   }
-  
+
   .tech-tag {
     font-size: 0.45rem;
     padding: 3px 6px;
   }
-  
+
   .project-btn {
     font-size: 0.55rem;
     padding: 6px 10px;
   }
+}
+
+.project-description {
+  font-size: 0.55rem;
+  margin-bottom: 15px;
+}
+
+.tech-tag {
+  font-size: 0.45rem;
+  padding: 3px 6px;
+}
+
+.project-btn {
+  font-size: 0.55rem;
+  padding: 6px 10px;
 }

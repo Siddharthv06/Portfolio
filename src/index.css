@@ -5,6 +5,19 @@ html {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Scroll-Reveal Animation System */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 

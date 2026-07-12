@@ -1,6 +1,6 @@
 
 
-/* Simple Professional Background */
+/* Premium Retro Dark Background */
 .gradient-background {
   position: fixed;
   top: 0;
@@ -8,7 +8,20 @@
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
+  background: radial-gradient(circle at 50% 50%, #121216 0%, #050507 100%);
+}
+
+.gradient-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%), 
+              linear-gradient(90deg, rgba(230, 197, 33, 0.03), rgba(0, 255, 0, 0.01), rgba(196, 30, 30, 0.03));
+  background-size: 100% 4px, 6px 100%;
+  pointer-events: none;
 }
 
 /* App Container with proper layering */

@@ -17,15 +17,9 @@ export default function Footer() {
     },
     { 
       name: 'GMAIL', 
-      url: 'siddharthv210106@gmail.com', 
+      url: 'mailto:siddharthv210106@gmail.com', 
       icon: 'fas fa-envelope',
       color: '#EA4335'
-    },
-    { 
-      name: 'INSTAGRAM', 
-      url: 'https://instagram.com/yourusername', 
-      icon: 'fab fa-instagram',
-      color: '#E4405F'
     }
   ];
 
@@ -62,7 +56,7 @@ export default function Footer() {
         
         <div className="footer-bottom">
           <div className="footer-divider"></div>
-          <p>&copy; 2025 Siddharth. Built with passion and pixels. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Siddharth. Built with passion and pixels. All rights reserved.</p>
           <p className="footer-tech">Made with React & Vite </p>
         </div>
       </div>

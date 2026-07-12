@@ -14,15 +14,13 @@ export default function App() {
       <div className="gradient-background"></div>
       
       <div className="app-content">
-        <title>Portfolio | Siddharth</title>
         <Navbar/>
         <Hero />
         <About />
         <Skill />
         <Projects />
         <Footer />
-        
       </div>
     </div>
   );
-}
+}
